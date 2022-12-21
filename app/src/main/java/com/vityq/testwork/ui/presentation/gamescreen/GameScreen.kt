@@ -18,7 +18,7 @@ import com.vityq.testwork.ui.theme.headerColor
 import com.vityq.testwork.ui.theme.scoreColor
 
 @Composable
-fun GameScreen() {
+fun GameScreen(viewModel: GameViewModel = androidx.lifecycle.viewmodel.compose.viewModel()) {
     Column(Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
         Spacer(modifier = Modifier.height(64.dp))
         Card(
@@ -39,7 +39,7 @@ fun GameScreen() {
                     text = "Таймер",
                     style = MaterialTheme.typography.h5
                 )
-                Text(text = "167", style = MaterialTheme.typography.h4)
+                Text(text = viewModel.timer.toString(), style = MaterialTheme.typography.h4)
             }
         }
 
@@ -84,7 +84,7 @@ fun GameScreen() {
             Spacer(modifier = Modifier.width(64.dp))
 
             Button(
-                onClick = { /*TODO*/ },
+                onClick = { viewModel.startTimer() },
                 colors = ButtonDefaults.buttonColors(
                     backgroundColor = Color.White
                 )
