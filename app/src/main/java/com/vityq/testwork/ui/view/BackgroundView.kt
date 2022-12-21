@@ -53,6 +53,14 @@ fun BackgroundView() {
             },
             style = MaterialTheme.typography.h6
         )
+        Text(
+            text = "+", modifier = Modifier.constrainAs(char5) {
+                start.linkTo(char3.end)
+                end.linkTo(char4.start)
+                top.linkTo(char4.bottom, 16.dp)
+            },
+            style = MaterialTheme.typography.h6
+        )
     }
 }
 
